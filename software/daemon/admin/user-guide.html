@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html data-theme="light" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>WWW Daemon User Guide - WorldWideWeb</title>
+
+    <!-- Pico CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.classless.red.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.colors.min.css"/>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600;700&amp;family=Quicksand:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+
+    <style>
+        :root {
+            --brand-jade:   #042C1B;
+            --brand-amber:  #D8A100;
+            --brand-blue:   #0F3888;
+            --brand-pink:   #4B0C1F;
+            --brand-green:  #015234;
+            --charcoal:     #2C2C2C;
+        }
+
+        body { font-family: 'Quicksand', sans-serif; }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Prompt', sans-serif; }
+
+        a {
+            color: var(--brand-blue);
+            text-decoration-color: var(--brand-green);
+            text-underline-offset: 3px;
+        }
+        a:hover {
+            color: var(--brand-pink);
+            text-decoration-color: var(--brand-pink);
+        }
+
+        header h1 {
+            margin-bottom: 0.25rem;
+        }
+        .title-rule {
+            border: none;
+            height: 3px;
+            background: linear-gradient(90deg, var(--brand-amber) 0%, var(--brand-jade) 100%);
+            margin-top: 0;
+            margin-bottom: 1.5rem;
+        }
+
+        nav[aria-label="breadcrumb"] ul li {
+            padding: 0;
+            margin: 0;
+        }
+        nav[aria-label="breadcrumb"] ul li:not(:last-child)::after {
+            position: static;
+            display: inline;
+            width: auto;
+            margin: 0 0.4rem;
+            content: ">";
+            opacity: 0.5;
+        }
+        nav[aria-label="breadcrumb"] ul li a {
+            margin: 0;
+        }
+
+    </style>
+</head>
+<body>
+
+<header>
+    <nav aria-label="breadcrumb"><ul><li><a href="../../../index.html">Home</a></li><li><a href="../../w3-software.html">Software Products</a></li><li><a href="../w3-server-overview.html">W3 Server Overview</a></li><li>User Guide</li></ul></nav>
+    <h1>Daemon User Guide</h1>
+</header>
+<hr class="title-rule"/>
+
+<main id="main-content">
+
+
+<p class="page-intro">The HTTP daemon, <code><a href="installation.html">httpd</a></code>, is a general-purpose server program that implements the W3 protocol, <a href="../../protocols/http/as-implemented.html">HTTP</a>. This guide provides the technical foundation for deploying and maintaining a W3 server within the multiverse.</p>
+<section id="documentation-directory">
+<h2>Technical Documentation</h2>
+<dl>
+<dt><a href="../../readme.html">Distribution</a></dt>
+<dd>Procedures for obtaining the source code and documentation archives.</dd>
+<dt><a href="compilation.html">Compilation</a></dt>
+<dd>Guidance on compiling the daemon for specific operating environments.</dd>
+<dt><a href="installation.html">Installation</a></dt>
+<dd>Instructions for deploying the server under the Unix internet daemon (inetd).</dd>
+<dt><a href="command-line.html">Runtime Options</a></dt>
+<dd>A directory of command-line flags and runtime configuration parameters.</dd>
+<dt><a href="rule-file.html">Rule File Configuration</a></dt>
+<dd>Formatting guidelines for the server rule file (default: <code>/etc/httpd.conf</code>).</dd>
+<dt><a href="debugging.html">Debugging</a></dt>
+<dd>Troubleshooting steps and diagnostic procedures for server failures.</dd>
+<dt><a href="../daemon-bugs.html">Bugs &amp; History</a></dt>
+<dd>A log of <a href="../daemon-bugs.html">known issues</a> and a <a href="../features.html">chronological record</a> of improvements made to the daemon.</dd>
+</dl>
+</section>
+<section id="historical-note">
+<h2>Networking Standards Note</h2>
+<p>During the experimental phase of the W3 project, the daemon utilized port number <strong>2784</strong> for incoming connections. However, the WorldWideWeb has now officially been allocated port <strong>80</strong>.</p>
+<ul>
+<li><strong>Current Standard:</strong> All servers should utilize port 80 as the primary listener.</li>
+<li><strong>Addressing:</strong> Addresses should be advertised with the explicit port number (e.g., <code>http://host:80/etc...</code>) during the transition.</li>
+<li><strong>Changeover Plan:</strong> Details regarding final protocol updates are announced via the <a href="../../administration/mailing/overview.html" id="mailing-list">www-announce mailing list</a>.</li>
+</ul>
+</section>
+<section id="context-links">
+<p>Related Architecture: <a href="../../index.html">The W3 Project</a> | <a href="../w3-server-overview.html" id="other-servers">Other Server Flavors</a></p>
+</section>
+<address>
+            Tim Berners-Lee / CERN
+        </address>
+
+
+</main>
+
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html data-theme="light" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Relative Naming</title>
+
+    <!-- Pico CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.classless.red.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.colors.min.css"/>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600;700&amp;family=Quicksand:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+
+    <style>
+        :root {
+            --brand-jade:   #042C1B;
+            --brand-amber:  #D8A100;
+            --brand-blue:   #0F3888;
+            --brand-pink:   #4B0C1F;
+            --brand-green:  #015234;
+            --charcoal:     #2C2C2C;
+        }
+
+        body { font-family: 'Quicksand', sans-serif; }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Prompt', sans-serif; }
+
+        a {
+            color: var(--brand-blue);
+            text-decoration-color: var(--brand-green);
+            text-underline-offset: 3px;
+        }
+        a:hover {
+            color: var(--brand-pink);
+            text-decoration-color: var(--brand-pink);
+        }
+
+        header h1 {
+            margin-bottom: 0.25rem;
+        }
+        .title-rule {
+            border: none;
+            height: 3px;
+            background: linear-gradient(90deg, var(--brand-amber) 0%, var(--brand-jade) 100%);
+            margin-top: 0;
+            margin-bottom: 1.5rem;
+        }
+
+        nav[aria-label="breadcrumb"] ul li {
+            padding: 0;
+            margin: 0;
+        }
+        nav[aria-label="breadcrumb"] ul li:not(:last-child)::after {
+            position: static;
+            display: inline;
+            width: auto;
+            margin: 0 0.4rem;
+            content: ">";
+            opacity: 0.5;
+        }
+        nav[aria-label="breadcrumb"] ul li a {
+            margin: 0;
+        }
+
+    </style>
+</head>
+<body>
+
+<header>
+    <nav aria-label="breadcrumb"><ul><li><a href="../../../index.html">Home</a></li><li><a href="../../technical-details.html">Technical</a></li><li><a href="naming-schemes.html">Addressing</a></li><li>Relative Naming</li></ul></nav>
+    <h1>Relative naming</h1>
+</header>
+<hr class="title-rule"/>
+
+<main id="main-content">
+
+
+<p>The address of a hypertext document is normally given within the context
+of another hypertext document. Where the addresses of the two documents
+are similar, this allows only the difference between the two names
+to be given, saving space. An example is the address of the destination
+of a hypertext link, which is specified relative to the source document
+address.</p>
+<p>(A further practical advantage is that a group of documents may be
+transmitted without internal changes, or accessed using more than
+one address.)</p>
+<p>This implies that certain characters ("/", "..") have a significance
+reserved for representing a hierarchical space, and must be recognized
+as such by both clients and servers.</p>
+<p>In the <a href="w3-naming.html">WWW address format</a>, the rules for relative naming are:</p>
+<ol>
+<li>If the "scheme" parts are different, the whole absolute address
+  must be given. Otherwise, the scheme is omitted, and:</li>
+<li>If the "host" and/or "port" parts are different, the host name and
+  all the rest of the address must be given. The host name may be given
+  using internet hostname conventions, ie domains may be omitted where
+  different. This is not very well defined: one tends to assume that
+  if any dot is present, then the full domain name is being given, up
+  to the root (.) domain, while if there are no dots, the domain is
+  the same as that of the hostname part of the base address.</li>
+<li>If the access and host parts are the same, then the path may be given
+  with the unix convention, including the use of ".." to indicate
+  deletion of a path element. Within the path:
+    <ul>
+<li>If a leading slash is present, the path is absolute. Otherwise:</li>
+<li>The last part of the path of the base address (e.g. the filename of
+      the current document) is removed, and the given relative address
+      appended in its place.</li>
+<li>Within the result, all occurrences "xxx/.." or "/." are recursively
+      removed, where xxx is one path element (directory).</li>
+</ul>
+</li>
+</ol>
+<p>The use of the slash "/" and double dot ".." in this case must be
+respected by all servers. If necessary, this may mean converting their
+local representations in order that these characters should not appear
+within path elements (see <a href="html-escape-characters.html">"escaping"</a>).</p>
+
+
+</main>
+
+</body>
+</html>

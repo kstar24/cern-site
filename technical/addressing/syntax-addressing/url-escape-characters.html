@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html data-theme="light" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Escaping -- /Addressing</title>
+
+    <!-- Pico CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.classless.red.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.colors.min.css"/>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600;700&amp;family=Quicksand:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+
+    <style>
+        :root {
+            --brand-jade:   #042C1B;
+            --brand-amber:  #D8A100;
+            --brand-blue:   #0F3888;
+            --brand-pink:   #4B0C1F;
+            --brand-green:  #015234;
+            --charcoal:     #2C2C2C;
+        }
+
+        body { font-family: 'Quicksand', sans-serif; }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Prompt', sans-serif; }
+
+        a {
+            color: var(--brand-blue);
+            text-decoration-color: var(--brand-green);
+            text-underline-offset: 3px;
+        }
+        a:hover {
+            color: var(--brand-pink);
+            text-decoration-color: var(--brand-pink);
+        }
+
+        header h1 {
+            margin-bottom: 0.25rem;
+        }
+        .title-rule {
+            border: none;
+            height: 3px;
+            background: linear-gradient(90deg, var(--brand-amber) 0%, var(--brand-jade) 100%);
+            margin-top: 0;
+            margin-bottom: 1.5rem;
+        }
+
+        nav[aria-label="breadcrumb"] ul li {
+            padding: 0;
+            margin: 0;
+        }
+        nav[aria-label="breadcrumb"] ul li:not(:last-child)::after {
+            position: static;
+            display: inline;
+            width: auto;
+            margin: 0 0.4rem;
+            content: ">";
+            opacity: 0.5;
+        }
+        nav[aria-label="breadcrumb"] ul li a {
+            margin: 0;
+        }
+
+    </style>
+</head>
+<body>
+
+<header>
+    <nav aria-label="breadcrumb"><ul><li><a href="../../../index.html">Home</a></li><li><a href="../../technical-details.html">Technical</a></li><li><a href="naming-schemes.html">Addressing</a></li><li>URL Escape Characters</li></ul></nav>
+    <h1>Escaping illegal characters</h1>
+</header>
+<hr class="title-rule"/>
+
+<main id="main-content">
+
+
+        The W3 address <a href="naming-schemes.html">syntax</a> allows a <a href="markup-bnf.html#bnf-path">path</a> to contain most printable ASCII
+characters, but some are inevitably used for punctuation are excluded.
+W3 addresses are sometimes used to represent addresses in some other
+space. This happens when an HTTP server, for example, uses file names
+as its document names, or when addresses from some other protocol
+(Gopher, WAIS, etc) are mapped into the W3 web.
+<p>In these cases, a convention is normally used to map illegal characters
+in these "foreign" names onto the allowed set.</p>
+<p>In the case of an HTTP server,  any mapping may be used.</p>
+<p>A suitable convention is that a percent sign (%) followed by two hexadecimal
+digits (0-9 or a-f)  stands for the single character with ASCII hexadecimal
+code represented by those two digits (Most significant digit first).</p>
+<p>A percent sign itself must therefore be represented by %25, as 25
+hex is the ASCII code for "%".</p>
+<p>
+<address>
+<a href="https://en.wikipedia.org/wiki/Tim_Berners-Lee" id="tim-bl-disclaimer">Tim BL</a>
+</address>
+</p>
+
+</main>
+
+</body>
+</html>

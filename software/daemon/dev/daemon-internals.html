@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html data-theme="light" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Server Internals - WorldWideWeb</title>
+
+    <!-- Pico CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.classless.red.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.colors.min.css"/>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600;700&amp;family=Quicksand:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+
+    <style>
+        :root {
+            --brand-jade:   #042C1B;
+            --brand-amber:  #D8A100;
+            --brand-blue:   #0F3888;
+            --brand-pink:   #4B0C1F;
+            --brand-green:  #015234;
+            --charcoal:     #2C2C2C;
+        }
+
+        body { font-family: 'Quicksand', sans-serif; }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Prompt', sans-serif; }
+
+        a {
+            color: var(--brand-blue);
+            text-decoration-color: var(--brand-green);
+            text-underline-offset: 3px;
+        }
+        a:hover {
+            color: var(--brand-pink);
+            text-decoration-color: var(--brand-pink);
+        }
+
+        header h1 {
+            margin-bottom: 0.25rem;
+        }
+        .title-rule {
+            border: none;
+            height: 3px;
+            background: linear-gradient(90deg, var(--brand-amber) 0%, var(--brand-jade) 100%);
+            margin-top: 0;
+            margin-bottom: 1.5rem;
+        }
+
+        nav[aria-label="breadcrumb"] ul li {
+            padding: 0;
+            margin: 0;
+        }
+        nav[aria-label="breadcrumb"] ul li:not(:last-child)::after {
+            position: static;
+            display: inline;
+            width: auto;
+            margin: 0 0.4rem;
+            content: ">";
+            opacity: 0.5;
+        }
+        nav[aria-label="breadcrumb"] ul li a {
+            margin: 0;
+        }
+
+    </style>
+</head>
+<body>
+
+<header>
+    <nav aria-label="breadcrumb"><ul><li><a href="../../../index.html">Home</a></li><li><a href="../../w3-software.html">Software Products</a></li><li><a href="../w3-server-overview.html">W3 Server Overview</a></li><li>Internals</li></ul></nav>
+    <h1>Server Internals</h1>
+</header>
+<hr class="title-rule"/>
+
+<main id="main-content">
+
+
+<p class="page-intro">This technical brief describes the inner workings of the generic hypertext <a href="../hypertext-terms.html#daemon">daemon</a> (server) program. As a core component of the WorldWideWeb project, it handles requests across the multiverse via TCP connections.</p>
+<section id="resource-links">
+<p>Related developer resources:</p>
+<ul>
+<li><a href="user/user-guide.html">User Guide</a>: Operation and configuration.</li>
+<li><a href="project-todo.html">Bugs &amp; Features</a>: Tracking known issues and wishlists.</li>
+<li><a href="overview.html">Other Servers</a>: Documentation for specific server flavors.</li>
+</ul>
+</section>
+<section id="logic-and-sources">
+<h2>Implementation Logic</h2>
+<p>The hypertext daemon, similar to the FTP daemon, responds to an incoming TCP connection to provide hypermedia services to the caller. The primary control loop manages how connections are handled based on the underlying architecture.</p>
+<h3>The SELECT Option</h3>
+<p>A compilation option (<code>SELECT</code>) controls whether more than one connection can be handled at a time. This is dependent on whether the TCP/IP implementation provides a working <code>select()</code> routine.</p>
+<ul>
+<li>If enabled, the daemon can manage multiple simultaneous listeners.</li>
+<li>If disabled, the implementation services one connection and drops it before accepting another.</li>
+</ul>
+<p>Note that in neither case does the daemon concurrently serve two clients or fork off processes to handle multiple requests simultaneously.</p>
+</section>
+<section id="source-code">
+<h2>Source Modules</h2>
+<p>The core logic is modularized to allow for different server flavors while sharing common WorldWideWeb libraries:</p>
+<ul>
+<li><strong>Main Loop:</strong> Located in <code><a href="Implementation/HTDaemon.c">HTDaemon.c</a></code>.</li>
+<li><strong>Request Handling:</strong> Specific modules like <code><a href="Implementation/HTRetrieve.c">HTRetrieve.c</a></code> contain the code to process individual requests.</li>
+<li><strong>Common Code:</strong> Utilizes various modules from the W3 common library for network access and format negotiation.</li>
+</ul>
+</section>
+<address>
+            Tim Berners-Lee / CERN
+        </address>
+
+
+</main>
+
+</body>
+</html>

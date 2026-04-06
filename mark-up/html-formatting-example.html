@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hypertext HTML formatting example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 2rem;
+        }
+        h1, h2, h3 {
+            margin-top: 2rem;
+        }
+        pre, code, xmp {
+            font-family: monospace;
+            background-color: #f4f4f4;
+            padding: 0.5rem;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+        dl dt {
+            font-weight: bold;
+            margin-top: 1rem;
+        }
+        dl dd {
+            margin-left: 1.5rem;
+        }
+        ul, ol {
+            margin-left: 2rem;
+        }
+        section {
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Markup Samples</h1>
+    <p>This is an example bit of hypertext — compare the formatted version with the original HTML source. Let's try introducing an initial paragraph between the H1 and the H2 headings.</p>
+</header>
+
+<main>
+    <section>
+        <h2>Introduction</h2>
+        <p>This file contains a test set of HTML mark-up, as a test of hypertext browsers and an example of the syntax of the tags. See also:</p>
+        <ul>
+            <li>An arbitrary news article</li>
+            <li>The newsgroup on hypertext</li>
+            <li>More details about the WWW project</li>
+        </ul>
+        <p>That is the end of the list.</p>
+    </section>
+
+    <section>
+        <h2>Some anchors</h2>
+        <p>Anchors come in two forms: whole nodes or parts of nodes. The line mode browser can't currently (Nov 91) jump to a part of a node: it always jumps to the top.</p>
+        <h3>Leading to whole nodes</h3>
+        <p>Here is an anchor which leads to the VM FIND command. Note the nested highlighting (hp2) within the anchor.</p>
+        <h3>Leading to anchors within nodes</h3>
+        <p>Now <a href="#anchor2">THIS</a> leads to anchor #2 in this file. Now the word <a name="destination">destination</a> is a named destination anchor, connected to the word <a href="#destination">source</a>. Clicking on the destination shouldn't do anything. Selecting the source should lead to the destination.</p>
+    </section>
+
+    <section>
+        <h2>Text and Headings</h2>
+        <p>The title, "Hypertext HTML formatting example" was between TITLE tags.</p>
+        <p>"Test Dataset" at the top of this page was a Level One Heading (H1).</p>
+        <p>The quick brown fox jumps over the lazy dog. In Hertford, Hereford and Hampshire, hurricanes hardly happen.</p>
+
+        <h2>Level two heading</h2>
+        <p>Here is some text which follows the heading. The quick brown fox jumps over the lazy dog. In Hertford, Hereford and Hampshire, hurricanes hardly happen.</p>
+
+        <h3>Level 3 heading</h3>
+        <p>Here is some text which follows the heading. The quick brown fox jumps over the lazy dog. In Hertford, Hereford and Hampshire, hurricanes hardly happen.</p>
+
+        <p>This is a test paragraph. It is separated from the previous one by a P paragraph mark.</p>
+        <p>This new paragraph was separated from the previous one by a blank line, a horrible leftover from SCRIPT.</p>
+    </section>
+
+    <section>
+        <h2>Monospaced Example</h2>
+        <pre><xmp>
+_-_
+[o,o]
+\-/ 
+This text is laid out using fixed-width characters
+-----------
+It uses the <XMP> tag, and can contain embedded < and > signs. It has tabs every eight columns.
+12345678123456781234567812345678123456781234567812345678123456781234567812345678
+! ! ! ! ! ! ! ! ! !
+Column: First Second Third Fourth Fifth Sixth Seventh Eighth Ninth
+Index: 1 2 3 4 5 6 7 8 9
+Junk: The Quick brown fox jumps over the lazy dog.
+        </xmp></pre>
+        <p>After the example text, we revert to the default again.</p>
+    </section>
+
+    <section>
+        <h2>Glossary</h2>
+        <p>A glossary has a large hanging indent aligned with a first tab stop.</p>
+        <dl>
+            <dt>Term</dt>
+            <dd>A word or phrase being defined.</dd>
+            <dt>Definition</dt>
+            <dd>A sentence or sentences which define the term. The definition can wrap around in the second column, but the term can't wrap around in the second column.</dd>
+        </dl>
+    </section>
+
+    <section>
+        <h2>Unordered List</h2>
+        <ul>
+            <li>This is the first element of an unordered list</li>
+            <li>This is the 2nd element of an unordered list</li>
+            <li>This is the 3rd element of an unordered list</li>
+            <li>This is the 4th element of an unordered list</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Menu Section</h2>
+        <ul>
+            <li>This is the first element of a menu</li>
+            <li>This is the 2nd element of a menu</li>
+            <li>This is the 3rd element of a menu</li>
+            <li>This is the 4th element of a menu</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Directory Section</h2>
+        <ul>
+            <li>First element of directory</li>
+            <li>This is the 2nd element</li>
+            <li>Third</li>
+            <li>Fourth</li>
+            <li>Fifth</li>
+            <li>Sixth element of a directory</li>
+            <li>Now let's try the 7th element</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Listing Section</h2>
+        <pre>
+123456781234567812345678123456781234567812345678123456781234567812345678123456781234567
+! ! ! ! ! ! ! ! ! ! !
+Column: First Second Third Fourth Fifth Sixth Seventh Eighth Ninth Tenth
+Index: 1 2 3 4 5 6 7 8 9 10
+Junk: The Quick brown fox jumps over the lazy dog again!
+        </pre>
+        <p>This is the end of the test file.</p>
+    </section>
+
+</main>
+
+</body>
+</html>

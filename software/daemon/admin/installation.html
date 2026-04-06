@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html data-theme="light" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Server Installation - WorldWideWeb</title>
+
+    <!-- Pico CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.classless.red.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.colors.min.css"/>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600;700&amp;family=Quicksand:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+
+    <style>
+        :root {
+            --brand-jade:   #042C1B;
+            --brand-amber:  #D8A100;
+            --brand-blue:   #0F3888;
+            --brand-pink:   #4B0C1F;
+            --brand-green:  #015234;
+            --charcoal:     #2C2C2C;
+        }
+
+        body { font-family: 'Quicksand', sans-serif; }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Prompt', sans-serif; }
+
+        a {
+            color: var(--brand-blue);
+            text-decoration-color: var(--brand-green);
+            text-underline-offset: 3px;
+        }
+        a:hover {
+            color: var(--brand-pink);
+            text-decoration-color: var(--brand-pink);
+        }
+
+        header h1 {
+            margin-bottom: 0.25rem;
+        }
+        .title-rule {
+            border: none;
+            height: 3px;
+            background: linear-gradient(90deg, var(--brand-amber) 0%, var(--brand-jade) 100%);
+            margin-top: 0;
+            margin-bottom: 1.5rem;
+        }
+
+        nav[aria-label="breadcrumb"] ul li {
+            padding: 0;
+            margin: 0;
+        }
+        nav[aria-label="breadcrumb"] ul li:not(:last-child)::after {
+            position: static;
+            display: inline;
+            width: auto;
+            margin: 0 0.4rem;
+            content: ">";
+            opacity: 0.5;
+        }
+        nav[aria-label="breadcrumb"] ul li a {
+            margin: 0;
+        }
+
+    </style>
+</head>
+<body>
+
+<header>
+    <nav aria-label="breadcrumb"><ul><li><a href="../../../index.html">Home</a></li><li><a href="../../w3-software.html">Software Products</a></li><li><a href="../w3-server-overview.html">W3 Server Overview</a></li><li>Installation</li></ul></nav>
+    <h1>Server Installation</h1>
+</header>
+<hr class="title-rule"/>
+
+<main id="main-content">
+
+
+<p class="page-intro">Deploying a WorldWideWeb daemon requires careful configuration of the host environment. This guide outlines the primary methods for installing the basic HTTP daemon (<code>httpd</code>) to ensure seamless hypermedia delivery across the network.</p>
+<section id="installation-methods">
+<h2>Primary Installation Methods</h2>
+<p>The usual way to install a daemon is to either run it from the bootstrap command file (for example <code>/etc/rc</code>) so that it runs continuously, or to set up the internet daemon (<code>inetd</code>) to run it when a call comes in.</p>
+<div class="historical-note">
+<p><strong>Requirement:</strong> Remember to establish a <a href="rule-file.html">rule file</a> unless you explicitly suppress this requirement with the <code>-R</code> command-line option.</p>
+</div>
+</section>
+<section id="internet-daemon">
+<h2>Using the Internet Daemon</h2>
+<p>For BSD Unix systems, a CSH script is provided to automate this process. This script may require minor edits to function correctly on other system variants.</p>
+<p>Otherwise, follow the standard <a href="Inetd.html">instructions for installing a server under the internet daemon</a> to ensure the service handles incoming requests appropriately.</p>
+</section>
+<section id="logging">
+<h2>Log Configuration</h2>
+<p>If a log file is required for traffic analysis or debugging, verify that the user name under which the daemon is executed has the necessary permissions to write to the specified file path.</p>
+</section>
+<address>
+            Tim Berners-Lee / CERN
+        </address>
+
+
+</main>
+
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notation</title>
+</head>
+<body>
+
+<!-- Breadcrumb Navigation -->
+<nav aria-label="breadcrumb">
+    <ul>
+        <li><a href="../../../index.html">Home</a></li>
+        <li>Technical</li>
+        <li>Notation</li>
+    </ul>
+</nav>
+
+<main>
+    <h1>Notation</h1>
+
+    <p>This section covers the notational conventions used in WWW specifications, specifically an augmented Backus-Naur Form (BNF). It is divided into three parts: standard RFC 822 conventions, specific changes for WWW, and general rules used across the project.</p>
+
+    <h2>Notational Conventions (BNF)</h2>
+    <ol>
+        <li><strong>Rule Naming:</strong> Rule names are written as the name itself (e.g., <code>RuleName</code>) rather than using angle brackets. Quotation marks enclose literal text.</li>
+        <li><strong>Alternatives:</strong> Elements separated by a vertical bar <code>|</code> are alternatives (e.g., <code>"foo | bar"</code>). Note: the vertical bar is used instead of the slash <code>/</code> because slashes are used heavily in directory paths.</li>
+        <li><strong>Repetition:</strong> The character <code>*</code> indicates repetition. The form <code>&lt;l&gt;*&lt;m&gt;element</code> indicates at least "l" and at most "m" occurrences. "1*element" requires at least one.</li>
+        <li><strong>Specific Repetition:</strong> Exactly "n" occurrences are written as <code>&lt;n&gt;(element)</code>. For example, <code>2DIGIT</code> is a 2-digit number.</li>
+        <li><strong>Lists:</strong> The <code>#</code> construct indicates a list where elements are separated by commas. "1#element" requires at least one non-null element.</li>
+        <li><strong>Comments:</strong> A semi-colon <code>;</code> starts a comment that continues to the end of the line.</li>
+    </ol>
+
+    <h2>Changes and Additions for WWW</h2>
+    <ul>
+        <li>Non-terminals are written in PascalCase (e.g., <code>NonTerminalName</code>).</li>
+        <li>A rule is written as: <code>NonTerminal ::= RuleDefinition</code>.</li>
+        <li>C-style escape sequences are used for layout characters: <code>\n</code> (newline), <code>\r</code> (carriage-return), <code>\t</code> (tab), <code>\b</code> (backspace), and <code>\f</code> (form feed).</li>
+        <li>Angle brackets are strictly avoided to prevent conflict with SGML/HTML tags.</li>
+    </ul>
+
+    <h2>General Rules</h2>
+    <p>HTTP data is written in line format, meaning line breaks (<code>\r\n</code>) are significant. Strings are sequences of ASCII characters surrounded by double-quotes. If a double-quote is needed inside a string, it must be escaped as <code>\"</code>.</p>
+
+    <p>Reference: <a href="../../../about/people/people.html#cailliau">RC</a></p>
+</main>
+
+</body>
+</html>
