@@ -1,157 +1,191 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Short History of Hypertext</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-            line-height: 1.6;
-        }
-        nav ul {
-            list-style: none;
-            padding: 0;
-        }
-        nav li {
-            display: inline;
-            margin-right: 5px;
-        }
-        nav li::after {
-            content: "›";
-            margin-left: 5px;
-        }
-        nav li:last-child::after {
-            content: "";
-        }
-        h1 {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-        .timeline {
-            position: relative;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        .timeline::after {
-            content: '';
-            position: absolute;
-            width: 4px;
-            background-color: #333;
-            top: 0;
-            bottom: 0;
-            left: 50%;
-            margin-left: -2px;
-        }
-        .entry {
-            padding: 10px 40px;
-            position: relative;
-            width: 50%;
-        }
-        .entry.left {
-            left: 0;
-        }
-        .entry.right {
-            left: 50%;
-        }
-        .entry::before {
-            content: '';
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            right: -10px;
-            background-color: #333;
-            border-radius: 50%;
-            top: 15px;
-            z-index: 1;
-        }
-        .entry.right::before {
-            left: -10px;
-        }
-        .entry h3 {
-            margin-top: 0;
-            font-size: 1.1em;
-            font-weight: bold;
-        }
-        .entry p {
-            margin: 5px 0 20px;
-        }
-        @media screen and (max-width: 768px) {
-            .entry {
-                width: 100%;
-                left: 0 !important;
-                padding-left: 20px;
-                padding-right: 20px;
-            }
-            .entry::before {
-                left: -10px;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Short History of Hypertext</title>
+  <style>
+    /* Timeline container */
+    .timeline {
+      position: relative;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 0;
+    }
+
+    /* Vertical spine line */
+    .timeline::after {
+      content: '';
+      position: absolute;
+      width: 4px;
+      background-color: #333;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      margin-left: -2px;
+    }
+
+    /* Timeline entry */
+    .entry {
+      padding: 10px 40px;
+      position: relative;
+      width: 50%;
+    }
+
+    /* Left side */
+    .left {
+      left: 0;
+    }
+
+    /* Right side */
+    .right {
+      left: 50%;
+    }
+
+    /* Content box */
+    .entry-content {
+      background-color: #f1f1f1;
+      padding: 15px 20px;
+      border-radius: 6px;
+      position: relative;
+    }
+
+    /* Circle node */
+    .entry::before {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: #333;
+      border-radius: 50%;
+      top: 15px;
+      z-index: 1;
+    }
+
+    .left::before {
+      right: -10px;
+    }
+
+    .right::before {
+      left: -10px;
+    }
+
+    /* Year styling */
+    .year {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    /* Responsive for small screens */
+    @media screen and (max-width: 768px) {
+      .entry {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+      }
+
+      .entry::before {
+        left: 30px;
+      }
+
+      .right {
+        left: 0%;
+      }
+    }
+  </style>
 </head>
 <body>
+  <!-- Breadcrumb Navigation -->
+  <nav aria-label="breadcrumb">
+    <ol>
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="hypertext.html">Hypertext</a></li>
+      <li>Timeline</li>
+    </ol>
+  </nav>
 
-<!-- Breadcrumb Navigation -->
-<nav aria-label="breadcrumb">
-    <ul>
-        <li><a href="../index.html">Home</a></li>
-        <li>Hypertext</li>
-        <li>Timeline</li>
-    </ul>
-</nav>
-
-<main>
+  <main>
     <h1>Short History of Hypertext</h1>
+    <p>This chronological list identifies the foundational milestones in the development of hypertext and hypermedia systems prior to the birth of the WorldWideWeb project.</p>
 
     <div class="timeline">
-        <div class="entry left">
-            <h3>1945</h3>
-            <p>Vannevar Bush (Science Advisor to President Roosevelt during WW2) proposes "Memex," a conceptual machine to store and link vast amounts of information.</p>
+      <div class="entry left">
+        <div class="entry-content">
+          <div class="year">1945</div>
+          <p>Vannevar Bush (Science Advisor to President Roosevelt during WW2) proposes "Memex," a conceptual machine to store and link vast amounts of information.</p>
         </div>
-        <div class="entry right">
-            <h3>1965</h3>
-            <p>Ted Nelson coins the word "Hypertext" to describe non-linear writing.</p>
-        </div>
-        <div class="entry left">
-            <h3>1967</h3>
-            <p>Andy van Dam and others build the Hypertext Editing System and FRESS at Brown University.</p>
-        </div>
-        <div class="entry right">
-            <h3>1968</h3>
-            <p>Doug Engelbart demonstrates the NLS (oN-Line System) at the Fall Joint Computer Conference (the "Mother of All Demos").</p>
-        </div>
-        <div class="entry left">
-            <h3>1975</h3>
-            <p>ZOG (now KMS) is developed at Carnegie Mellon University (CMU).</p>
-        </div>
-        <div class="entry right">
-            <h3>1978</h3>
-            <p>The Aspen Movie Map is created at MIT—the first hypermedia videodisc.</p>
-        </div>
-        <div class="entry left">
-            <h3>1984</h3>
-            <p>Filevision from Telos: A hypermedia database for the Macintosh.</p>
-        </div>
-        <div class="entry right">
-            <h3>1985</h3>
-            <p>Symbolics Document Examiner (Janet Walker) and InterMedia (Norman Meyrowitz at Brown University).</p>
-        </div>
-        <div class="entry left">
-            <h3>1986</h3>
-            <p>OWL introduces "Guide," the first widely available hypertext system for personal computers.</p>
-        </div>
-        <div class="entry right">
-            <h3>1987</h3>
-            <p>Apple introduces HyperCard (Bill Atkinson). The first Hypertext '87 Workshop is held.</p>
-        </div>
-        <div class="entry left">
-            <h3>1990</h3>
-            <p>ECHT (European Conference on HyperText) marks a major expansion in the field.</p>
-        </div>
-    </div>
+      </div>
 
-</main>
+      <div class="entry right">
+        <div class="entry-content">
+          <div class="year">1965</div>
+          <p>Ted Nelson coins the word "Hypertext" to describe non-linear writing.</p>
+        </div>
+      </div>
+
+      <div class="entry left">
+        <div class="entry-content">
+          <div class="year">1967</div>
+          <p>Andy van Dam and others build the Hypertext Editing System and FRESS at Brown University.</p>
+        </div>
+      </div>
+
+      <div class="entry right">
+        <div class="entry-content">
+          <div class="year">1968</div>
+          <p>Doug Engelbart demonstrates the NLS (oN-Line System) at the Fall Joint Computer Conference (the "Mother of All Demos").</p>
+        </div>
+      </div>
+
+      <div class="entry left">
+        <div class="entry-content">
+          <div class="year">1975</div>
+          <p>ZOG (now KMS) is developed at Carnegie Mellon University (CMU).</p>
+        </div>
+      </div>
+
+      <div class="entry right">
+        <div class="entry-content">
+          <div class="year">1978</div>
+          <p>The Aspen Movie Map is created at MIT—the first hypermedia videodisc.</p>
+        </div>
+      </div>
+
+      <div class="entry left">
+        <div class="entry-content">
+          <div class="year">1984</div>
+          <p>Filevision from Telos: A hypermedia database for the Macintosh.</p>
+        </div>
+      </div>
+
+      <div class="entry right">
+        <div class="entry-content">
+          <div class="year">1985</div>
+          <p>Symbolics Document Examiner (Janet Walker) and InterMedia (Norman Meyrowitz at Brown University).</p>
+        </div>
+      </div>
+
+      <div class="entry left">
+        <div class="entry-content">
+          <div class="year">1986</div>
+          <p>OWL introduces "Guide," the first widely available hypertext system for personal computers.</p>
+        </div>
+      </div>
+
+      <div class="entry right">
+        <div class="entry-content">
+          <div class="year">1987</div>
+          <p>Apple introduces HyperCard (Bill Atkinson). The first Hypertext '87 Workshop is held.</p>
+        </div>
+      </div>
+
+      <div class="entry left">
+        <div class="entry-content">
+          <div class="year">1990</div>
+          <p>ECHT (European Conference on HyperText) marks a major expansion in the field. Key contributors include <a href="../about/people/people.html#cailliau">RC</a>.</p>
+        </div>
+      </div>
+    </div>
+  </main>
 </body>
 </html>
